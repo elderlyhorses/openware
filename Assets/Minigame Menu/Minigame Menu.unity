@@ -306,6 +306,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415526919}
   m_CullTransparentMesh: 0
+--- !u!1 &524051241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524051243}
+  - component: {fileID: 524051242}
+  m_Layer: 0
+  m_Name: Scene Loaded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &524051242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524051241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f82b345ad7100074399ee0fa23831057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &524051243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524051241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1120.0266, y: 1946.4222, z: -387.67316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569625371
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +591,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -556,14 +598,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -765,8 +799,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680481244}
-  - component: {fileID: 1680481243}
   - component: {fileID: 1680481242}
+  - component: {fileID: 1680481243}
   m_Layer: 0
   m_Name: MenuSetup
   m_TagString: Untagged
@@ -795,7 +829,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680481241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e55c5be630b4185866e8386f9bdc90, type: 3}
+  m_Script: {fileID: 11500000, guid: dccc5fa11e0ec624e99cdf66d0d5984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonPrefab: {fileID: 5925993140467443157, guid: de7af5df15395884d999ec727d564dcf,
