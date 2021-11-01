@@ -2,6 +2,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BubblePop
 {
@@ -27,6 +28,13 @@ namespace BubblePop
             transform.localScale = Vector3.zero;
             gameObject.SetActive(true);
             transform.DOScale(Vector3.one, _easeInDuration).SetEase(_easeIn);
+            Color randomColor = Colors.RandomColor();
+            GetComponent<Image>().color = randomColor;
+            if (Colors.IsDark(randomColor)) {
+                _numberText.color = Color.white;
+            } else {
+                _numberText.color = Color.black;
+            }
         }
 
         public void OnButtonClicked()

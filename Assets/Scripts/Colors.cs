@@ -1341,6 +1341,11 @@ public static class Colors
 		return AllColors[ind];
 	}
 
+    public static bool IsDark(Color color) {
+        // From: https://stackoverflow.com/a/596243
+        return (0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b) < 0.3f;
+    }
+
     public static readonly Color[] AllColors = {
         AbsoluteZero,
 		Acajou,

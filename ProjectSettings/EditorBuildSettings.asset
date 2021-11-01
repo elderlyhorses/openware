@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/Split/Split.unity
     guid: bbc100d212b659c46ad1a2b834ad809d
+  - enabled: 1
+    path: Assets/Minigames/Punch/Punch.unity
+    guid: f81254fb3e7064d4d94016381ea2662c
   m_configObjects: {}

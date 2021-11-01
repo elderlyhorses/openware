@@ -24,7 +24,6 @@ namespace BubblePop
 
         private void Awake()
         {
-            //lazy to cache :p
             _bubbles = GetComponentsInChildren<Bubble>();
             Array.ForEach(_bubbles, b => b.gameObject.SetActive(false));
             
@@ -77,8 +76,8 @@ namespace BubblePop
 
         private void ShowResultText(bool isWin)
         {
-            _resultText.text = isWin ? "You Win!" : "You Loose!";
-            _resultText.color = isWin ? Color.green : Color.red;
+            _resultText.text = isWin ? "You Win!" : "You Lose!";
+            _resultText.color = isWin ? Colors.GreenPantone : Colors.RedCrayola;
             _resultText.gameObject.SetActive(true);
         }
     }

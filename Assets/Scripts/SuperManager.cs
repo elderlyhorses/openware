@@ -30,7 +30,8 @@ namespace SuperManager
             currentScreen = Screen.MainMenu;
 
             AsyncOperation main = SceneManager.LoadSceneAsync("Main Menu", LoadSceneMode.Additive);
-            while (!main.isDone) {
+            while (!main.isDone)
+            {
                 yield return null;
             }
 
@@ -39,7 +40,6 @@ namespace SuperManager
 
         void SetupMainMenu()
         {
-            print("SetupMainMenu");
             GameObject.Find("Play").GetComponent<Button>().onClick.AddListener(DidTapMainMenuPlay);
             GameObject.Find("Play specific minigames").GetComponent<Button>().onClick.AddListener(DidTapMainMenuPlaySpecificMinigames);
             GameObject.Find("High score text").GetComponent<TextMeshProUGUI>().text = "High score: " + PlayerPrefs.GetInt("HighScore", 0);
@@ -54,14 +54,15 @@ namespace SuperManager
             StartCoroutine(ShowSceneWithTransition("Score and lives", Screen.HighScoreScoreScreen, CompleteScoreAndLivesSetup));
         }
 
-        void CompleteScoreAndLivesSetup() {
-            print("CompleteScoreAndLivesSetup");
+        void CompleteScoreAndLivesSetup()
+        {
             GameObject.Find("Score text").GetComponent<TextMeshProUGUI>().text = "" + score;
             UpdateLifeIcons();
             StartCoroutine("ContinueHighScoreAfterDelay");
         }
 
-        IEnumerator ContinueHighScoreAfterDelay() {
+        IEnumerator ContinueHighScoreAfterDelay()
+        {
             yield return new WaitForSeconds(2);
             ContinueHighScoreGame();
         }
@@ -104,14 +105,12 @@ namespace SuperManager
 
         void DidWinMinigame()
         {
-            print("DidWinMinigame");
             score += 1;
             ContinueHighScoreGame();
         }
 
         void DidLoseMinigame()
         {
-            print("DidLoseMinigame");
             lives -= 1;
             ContinueHighScoreGame();
         }
@@ -176,7 +175,8 @@ namespace SuperManager
             StartCoroutine(ShowSceneWithTransition("Main Menu", Screen.MainMenu, SetupMainMenu));
         }
 
-        void CompleteMiniGameMenuSetup() {
+        void CompleteMiniGameMenuSetup()
+        {
             GameObject.Find("Back button").GetComponent<Button>().onClick.AddListener(BackToMainMenu);
 
             // Add new minigame here
@@ -196,6 +196,7 @@ namespace SuperManager
             GameObject.Find("Mouse Maze").GetComponent<Button>().onClick.AddListener(DidTapMouseMazeGame);
             GameObject.Find("Bubble Pop").GetComponent<Button>().onClick.AddListener(DidTapBubblePopGame);
             GameObject.Find("Split").GetComponent<Button>().onClick.AddListener(DidTapSplitGame);
+            GameObject.Find("Punch").GetComponent<Button>().onClick.AddListener(DidTapPunchGame);
         }
 
         // Specific minigame menu callbacks        
@@ -275,38 +276,41 @@ namespace SuperManager
             ShowAndSetupSpecificMinigame("Split");
         }
 
+        void DidTapPunchGame()
+        {
+            ShowAndSetupSpecificMinigame("Punch");
+        }
+
         void ShowAndSetupSpecificMinigame(string sceneName)
         {
-            print("ShowAndSetupSpecificMinigame: " + sceneName);
             currentMinigame = sceneName;
             StartCoroutine(ShowSceneWithTransition(sceneName, Screen.PracticeMinigame, SetupSpecificMinigameCompletionHandler));
         }
 
-        void SetupSpecificMinigameCompletionHandler() {
-            print("SetupSpecificMinigameCompletionHandler");
+        void SetupSpecificMinigameCompletionHandler()
+        {
             MinigameCompletionHandler completionHandler = FindObjectOfType<MinigameCompletionHandler>();
             completionHandler.WinCallback = DidCompleteSpecificMinigame;
             completionHandler.LoseCallback = DidCompleteSpecificMinigame;
         }
 
-        void SetupHighScoreMinigameCompletionHandler() {
-            print("SetupHighScoreMinigameCompletionHandler");
+        void SetupHighScoreMinigameCompletionHandler()
+        {
             MinigameCompletionHandler completionHandler = FindObjectOfType<MinigameCompletionHandler>();
             completionHandler.WinCallback = DidWinMinigame;
             completionHandler.LoseCallback = DidLoseMinigame;
         }
 
-        IEnumerator ShowSceneWithTransition(string sceneName, Screen screen, UnityAction callback) {
-            print("ShowSceneWithTransition 1: " + sceneName);
+        IEnumerator ShowSceneWithTransition(string sceneName, Screen screen, UnityAction callback)
+        {
             currentScreen = screen;
 
             sceneLoaded = false;
             AsyncOperation transition = SceneManager.LoadSceneAsync("Transition", LoadSceneMode.Additive);
-            while (!sceneLoaded) {
+            while (!sceneLoaded)
+            {
                 yield return null;
             }
-
-            print("ShowSceneWithTransition 2: " + sceneName);
 
             Animator TransitionAnimator = GameObject.Find("Transition Canvas").GetComponent<Animator>();
             TransitionAnimator.SetTrigger("In");
@@ -323,36 +327,29 @@ namespace SuperManager
                 }
             }
 
-            print("ShowSceneWithTransition 3: " + sceneName);
-
             sceneLoaded = false;
-            AsyncOperation scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);           
+            AsyncOperation scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-            print("ShowSceneWithTransition 4: " + sceneName);
-
-            while (!sceneLoaded) {
-                print("sceneLoaded: " + sceneLoaded);
+            while (!sceneLoaded)
+            {
                 yield return null;
             }
 
             TransitionAnimator.SetTrigger("Out");
 
-            print("ShowSceneWithTransition 5: " + sceneName);
-
             // The duration of the transition in animation
             yield return new WaitForSeconds(0.25f);
 
-            print("ShowSceneWithTransition 6: " + sceneName);
-
             SceneManager.UnloadSceneAsync("Transition");
 
-            if (callback != null) {
+            if (callback != null)
+            {
                 callback.Invoke();
             }
         }
 
-        public void SceneLoaded() {
-            print("SceneLoaded");
+        public void SceneLoaded()
+        {
             sceneLoaded = true;
         }
     }
