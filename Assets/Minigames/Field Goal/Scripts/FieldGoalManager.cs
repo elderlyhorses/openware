@@ -68,10 +68,6 @@ namespace FieldGoal
             float windZ = WindArrowTransform.eulerAngles.z > 180f ? -360f + WindArrowTransform.eulerAngles.z : WindArrowTransform.eulerAngles.z;
             float angle = aimZ + windZ;
 
-            print("aimZ: " + aimZ);
-            print("windZ: " + windZ);
-            print("angle: " + angle);
-
             // Then convert the angle to our blend range 0-1 where 0.5 is right down the middle
             if (angle < 0) {
                 float z = Mathf.Max(-90f, angle);
@@ -89,10 +85,8 @@ namespace FieldGoal
 
             // Then handle if the kick was good or not
             if (Mathf.Abs(angle) <= 46f) {
-                print("WIN");
                 StartCoroutine("handleWin");
             } else {
-                print("LOSE");
                 StartCoroutine("handleLose");
             }
         }

@@ -8,14 +8,14 @@ namespace Awp {
         public AudioClip BoomHeadshotClip;
         public AwpManager AwpManager;
 
-        AudioSource source;
+        SoundManager SoundManager;
 
         private void Awake() {
-            source = GetComponent<AudioSource>();
+            SoundManager = FindObjectOfType<SoundManager>();
         }
 
         private void OnMouseDown() {
-            source.PlayOneShot(BoomHeadshotClip);
+            SoundManager.PlayOneShot(BoomHeadshotClip);
             AwpManager.DidShootEnemy(transform.parent.gameObject);
         }
     }

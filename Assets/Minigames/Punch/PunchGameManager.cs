@@ -69,7 +69,6 @@ public class PunchGameManager : MonoBehaviour
     void Punch()
     {
         float dist = Vector3.Distance(HeroAnimator.gameObject.transform.position, Lawyer.transform.position);
-        print("dist: " + dist);
         if (dist < 0.5f)
         {
             StartCoroutine("Win");

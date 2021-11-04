@@ -8,7 +8,6 @@ namespace MouseMaze {
         public MouseMazeManager MouseMazeManager;
 
         private void OnCollisionEnter2D(Collision2D other) {
-            print("Collision! " + other.gameObject.name);
             if (other.gameObject.name.StartsWith("Walls")) {
                 MouseMazeManager.DidCollideWithWall();
             }

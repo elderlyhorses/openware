@@ -29,7 +29,6 @@ namespace Graduation {
             LoseText.SetActive(false);
 
             int num = Mathf.FloorToInt(1 + Random.Range(0f, 4.99999f));
-            print("Fly" + num);
             DiplomaAnimator.SetTrigger("Fly" + num);
             StartCoroutine("timeout");
         }

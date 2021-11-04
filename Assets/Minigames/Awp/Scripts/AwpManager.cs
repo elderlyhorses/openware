@@ -22,7 +22,7 @@ namespace Awp {
 
         public MinigameCompletionHandler MinigameCompletionHandler;
 
-        AudioSource audioSource;
+        SoundManager SoundManager;
         float lastShotTimestamp = 0f;
         int remainingEnemies = 2;
         int secondsRemaining = 10;
@@ -30,7 +30,7 @@ namespace Awp {
         bool isComplete = false;
 
         void Awake() {
-            audioSource = GetComponent<AudioSource>();
+            SoundManager = FindObjectOfType<SoundManager>();
             Cursor.visible = false;
             WinUI.SetActive(false);
             LoseUI.SetActive(false);
@@ -75,7 +75,7 @@ namespace Awp {
             Vector3 bulletHoleScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Cam.nearClipPlane);
             Vector3 bulletHoleWorldPos = Cam.ScreenToWorldPoint(bulletHoleScreenPos);
 
-            audioSource.PlayOneShot(Gunshot);
+            SoundManager.PlayOneShot(Gunshot);
             GameObject newBulletHole = Instantiate(BulletHole, bulletHoleWorldPos, Quaternion.identity);
             newBulletHole.transform.localScale = new Vector3(0.003296526f, 0.003296526f, 0.003296526f);
         }
@@ -94,9 +94,9 @@ namespace Awp {
             // Prevent enemy from dying when they get clicked and the gun is on cooldown
             if (diff == 0f) {
                 if (remainingEnemies == 2) {
-                    audioSource.PlayOneShot(Death2);
+                    SoundManager.PlayOneShot(Death2);
                 } else if (remainingEnemies == 1) {
-                    audioSource.PlayOneShot(Death1);
+                    SoundManager.PlayOneShot(Death1);
                 }
 
                 enemyObj.GetComponent<Animator>().SetTrigger("Die");
@@ -127,7 +127,7 @@ namespace Awp {
         }
 
         void celebrationSound() {
-            audioSource.PlayOneShot(Brap);
+            SoundManager.PlayOneShot(Brap);
         }
 
         void handleLose() {

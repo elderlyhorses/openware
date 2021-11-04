@@ -26,7 +26,7 @@ namespace FastOrSlowYouDecide {
         public AudioClip LossClip;
         public AudioClip WinClip;
 
-        AudioSource audioSource;
+        SoundManager SoundManager;
 
         int secondsRemaining = 10;
 
@@ -52,7 +52,7 @@ namespace FastOrSlowYouDecide {
             }
 
             InvokeRepeating("Countdown", Delay(), Delay());
-            audioSource = GetComponent<AudioSource>();
+            SoundManager = FindObjectOfType<SoundManager>();
         }
 
         float Delay() {
@@ -83,12 +83,9 @@ namespace FastOrSlowYouDecide {
             }
 
             if (secondsRemaining <= 0) {
-                print("Done!");
                 isComplete = true;
                 StartCoroutine("handleLoss");
             } else {
-                print("Seconds remaining: " + secondsRemaining);
-
                 playCountdownAudio();
                 secondsRemaining--;
             }
@@ -97,34 +94,34 @@ namespace FastOrSlowYouDecide {
         void playCountdownAudio() {
             switch (secondsRemaining) {
                 case 10:
-                    audioSource.PlayOneShot(TenSeconds);
+                    SoundManager.PlayOneShot(TenSeconds);
                     break;
                 case 9:
-                    audioSource.PlayOneShot(NineSeconds);
+                    SoundManager.PlayOneShot(NineSeconds);
                     break;
                 case 8:
-                    audioSource.PlayOneShot(EightSeconds);
+                    SoundManager.PlayOneShot(EightSeconds);
                     break;
                 case 7:
-                    audioSource.PlayOneShot(SevenSeconds);
+                    SoundManager.PlayOneShot(SevenSeconds);
                     break;
                 case 6:
-                    audioSource.PlayOneShot(SixSeconds);
+                    SoundManager.PlayOneShot(SixSeconds);
                     break;
                 case 5:
-                    audioSource.PlayOneShot(FiveSeconds);
+                    SoundManager.PlayOneShot(FiveSeconds);
                     break;
                 case 4:
-                    audioSource.PlayOneShot(FourSeconds);
+                    SoundManager.PlayOneShot(FourSeconds);
                     break;
                 case 3:
-                    audioSource.PlayOneShot(ThreeSeconds);
+                    SoundManager.PlayOneShot(ThreeSeconds);
                     break;
                 case 2:
-                    audioSource.PlayOneShot(TwoSeconds);
+                    SoundManager.PlayOneShot(TwoSeconds);
                     break;
                 case 1:
-                    audioSource.PlayOneShot(OneSecond);
+                    SoundManager.PlayOneShot(OneSecond);
                     break;
             }
         }
@@ -132,7 +129,7 @@ namespace FastOrSlowYouDecide {
         IEnumerator handleLoss() {
             isComplete = true;
             
-            audioSource.PlayOneShot(LossClip);
+            SoundManager.PlayOneShot(LossClip);
             yield return new WaitForSeconds(2);
             MinigameCompletionHandler.LoseCallback.Invoke();
         }
@@ -140,7 +137,7 @@ namespace FastOrSlowYouDecide {
         IEnumerator handleWin() {
             isComplete = true;
             
-            audioSource.PlayOneShot(WinClip);
+            SoundManager.PlayOneShot(WinClip);
 
             yield return new WaitForSeconds(2);
             MinigameCompletionHandler.WinCallback.Invoke();

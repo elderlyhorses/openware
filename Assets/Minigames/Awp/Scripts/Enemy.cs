@@ -8,7 +8,6 @@ namespace Awp {
         public AwpManager AwpManager;
 
         private void OnMouseDown() {
-            print("OnMouseDown");
             AwpManager.DidShootEnemy(gameObject);
         }
     }

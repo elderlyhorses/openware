@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
 
-namespace SuperManager
+namespace SceneCoordinator
 {
-    public class SuperManager : MonoBehaviour
+    public class SceneCoordinator : MonoBehaviour
     {
         int lives;
         int score;
@@ -321,7 +321,7 @@ namespace SuperManager
             for (int x = 0; x < SceneManager.sceneCount; x++)
             {
                 Scene s = SceneManager.GetSceneAt(x);
-                if (s.name != "SuperManager" && s.name != "Transition")
+                if (s.name != "SceneCoordinator" && s.name != "Transition")
                 {
                     SceneManager.UnloadSceneAsync(s.name);
                 }
@@ -335,6 +335,13 @@ namespace SuperManager
                 yield return null;
             }
 
+            AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+            foreach (AudioListener listener in listeners) {
+                if (listener.gameObject.name != "SoundManager") {
+                    Destroy(listener);
+                }
+            }
+            
             TransitionAnimator.SetTrigger("Out");
 
             // The duration of the transition in animation
