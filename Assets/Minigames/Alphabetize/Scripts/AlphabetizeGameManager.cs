@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
+using Random = UnityEngine.Random;
 
 namespace Alphabetize {
     public class AlphabetizeGameManager : MonoBehaviour {
@@ -16,19 +19,29 @@ namespace Alphabetize {
         public Color RegularTextColor;
         public int NumberOfWords = 3;
         public MinigameCompletionHandler MinigameCompletionHandler;
-
+        public GameObject InstructionsText;
+        
         List<string> wordList = new List<string>();
         List<string> spawnedWords = new List<string>();
         List<string> correctWords = new List<string>();
         Dictionary<string, TextMeshProUGUI> textUIForString = new Dictionary<string, TextMeshProUGUI>();
-
+        private Vector3 punchScale = Vector3.one / 2f;
+        
         bool isComplete = false;
         int secondsRemaining = 10;
 
-        private void Awake() {
+        private void Awake()
+        {
+            StartCoroutine("Setup");
+        }
+
+        IEnumerator Setup()
+        {
             populateWordList();
 
             FeedbackText.text = "";
+            CountdownText.gameObject.SetActive(false);
+            List<GameObject> buttons = new List<GameObject>();
 
             for (int x = 0; x < NumberOfWords; x++) {
                 int ind = Random.Range(0, wordList.Count);
@@ -42,10 +55,26 @@ namespace Alphabetize {
                 textUIForString[newWord] = text;
                 text.text = newWord;
                 newButton.transform.SetParent(ButtonGrid.transform);
+                buttons.Add(newButton);
+                newButton.SetActive(false);
             }
-
+            
             CountdownText.text = "";
             spawnedWords.Sort();
+            
+            yield return new WaitForSeconds(0.2f);
+            InstructionsText.transform.DOPunchScale(punchScale, 0.25f);
+
+            for (int x = 0; x < 3; x++)
+            {
+                yield return new WaitForSeconds(0.1f);
+                buttons[x].SetActive(true);
+                buttons[x].transform.DOPunchScale(punchScale, 0.2f);
+            }
+
+            yield return new WaitForSeconds(0.2f);
+            CountdownText.gameObject.SetActive(true);
+            CountdownText.transform.DOPunchScale(punchScale, 0.2f);
             InvokeRepeating("countdown", 0f, 1f);
         }
 
@@ -55,6 +84,7 @@ namespace Alphabetize {
             }
 
             CountdownText.text = "" + secondsRemaining;
+            CountdownText.transform.DOPunchScale(punchScale, 0.2f);
             secondsRemaining--;
 
             if (secondsRemaining <= 0) {
@@ -66,6 +96,8 @@ namespace Alphabetize {
             if (isComplete) {
                 return;
             }
+
+            obj.transform.DOPunchScale(punchScale, 0.3f);
 
             TextMeshProUGUI text = obj.GetComponentInChildren<TextMeshProUGUI>();
             string word = text.text;

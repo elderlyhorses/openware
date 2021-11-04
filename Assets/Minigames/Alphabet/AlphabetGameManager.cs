@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -20,6 +22,9 @@ namespace Alphabet
         public GameObject NegativeFeedbackImage;
         public GameObject NegativeFeedbackText;
 
+        public GameObject LetterPrefab;
+        public Canvas Canvas;
+        
         int secondsRemaining = 13;
         bool gameIsOver = false;
         string fullAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -41,7 +46,17 @@ namespace Alphabet
 
             if (Input.anyKeyDown)
             {
+                string val = GetCurrentKeyDown().ToString();
+                if (val.Length == 0)
+                {
+                    return;
+                }
+                
                 ValidateInput();
+                GameObject letter = Instantiate(LetterPrefab, Vector3.zero, Quaternion.identity);
+                letter.transform.SetParent(Canvas.transform);
+                letter.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                letter.GetComponentInChildren<TextMeshProUGUI>().text = val;
             }
         }
 
@@ -134,6 +149,28 @@ namespace Alphabet
                 yield return new WaitForSeconds(2f);
                 MinigameCompletionHandler.WinCallback.Invoke();
             }
+        }
+        
+        // From https://forum.unity.com/threads/find-out-which-key-was-pressed.385250/
+        private static readonly KeyCode[] keyCodes = Enum.GetValues(typeof(KeyCode))
+            .Cast<KeyCode>()
+            .Where(k => ((int)k < (int)KeyCode.Mouse0))
+            .ToArray();
+        private static KeyCode? GetCurrentKeyDown()
+        {
+            if (!Input.anyKey)
+            {
+                return null;
+            }
+ 
+            for (int i = 0; i < keyCodes.Length; i++)
+            {
+                if (Input.GetKey(keyCodes[i]))
+                {
+                    return keyCodes[i];
+                }
+            }
+            return null;
         }
     }
 }
