@@ -24,6 +24,9 @@ namespace Alphabet
 
         public GameObject LetterPrefab;
         public Canvas Canvas;
+
+        private SoundManager _soundManager;
+        private List<AudioClip> letterAudioClips = new List<AudioClip>();
         
         int secondsRemaining = 13;
         bool gameIsOver = false;
@@ -35,6 +38,23 @@ namespace Alphabet
             StartCoroutine("Countdown");
             WinText.SetActive(false);
             LoseText.SetActive(false);
+            UnityEngine.Object[] objs = Resources.LoadAll("Letter Audio", typeof(AudioClip));
+            foreach (UnityEngine.Object obj in objs)
+            {
+                letterAudioClips.Add((AudioClip)obj);                
+            }
+            
+            letterAudioClips.Sort(delegate(AudioClip a, AudioClip b)
+            {
+                return a.name.CompareTo(b.name);
+            });
+
+            for (int x = 0; x < letterAudioClips.Count; x++)
+            {
+                print(x + " " + letterAudioClips[x].name);   
+            }
+
+            _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         }
 
         void Update()
@@ -57,6 +77,17 @@ namespace Alphabet
                 letter.transform.SetParent(Canvas.transform);
                 letter.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 letter.GetComponentInChildren<TextMeshProUGUI>().text = val;
+
+                for (int x = 0; x < letterAudioClips.Count; x++)
+                {
+                    print(letterAudioClips[x].name + " -- " + "Letter" + val.ToUpper());
+                    if (letterAudioClips[x].name == "Letter" + val.ToUpper())
+                    {
+                        print("play one shot");
+                        _soundManager.PlayOneShot(letterAudioClips[x]);
+                        break;
+                    }
+                }
             }
         }
 
@@ -122,7 +153,6 @@ namespace Alphabet
                     StartCoroutine("Countdown");
                 }
             }
-
         }
 
         IEnumerator Lose()

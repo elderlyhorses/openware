@@ -24,6 +24,10 @@ namespace FieldGoal
 
         public List<GameObject> LoseObjects;
 
+        public List<AudioClip> KickAudioClips;
+        public List<AudioClip> WinAudioClips;
+        public List<AudioClip> LoseAudioClips;
+        
         float windPower;
         bool windIsLeft;
 

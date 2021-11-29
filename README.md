@@ -24,3 +24,6 @@
 
 # Art and sound assets
 Art and sound assets can only be used if we've got the appropriate license. For this reason, making original art is encouraged. If you source art or sound from somewhere please link it here after you check that the license permits its use. Note "original" here means it was created specifically for Openware and thus it uses Openware's license.
+
+- Playing cards from [this Wikipedia article](https://en.wikipedia.org/wiki/Standard_52-card_deck) ([CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/))
+- Casino felt from [davidgsteadman](https://flic.kr/p/ibmNwe)

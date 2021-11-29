@@ -483,6 +483,12 @@ MonoBehaviour:
   - {fileID: 642956715}
   LoseObjects:
   - {fileID: 10825767}
+  KickAudioClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WinAudioClips: []
+  LoseAudioClips: []
 --- !u!4 &384204007
 Transform:
   m_ObjectHideFlags: 0
