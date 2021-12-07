@@ -48,12 +48,7 @@ namespace Alphabet
             {
                 return a.name.CompareTo(b.name);
             });
-
-            for (int x = 0; x < letterAudioClips.Count; x++)
-            {
-                print(x + " " + letterAudioClips[x].name);   
-            }
-
+            
             _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         }
 

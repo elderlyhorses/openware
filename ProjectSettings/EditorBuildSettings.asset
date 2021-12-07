@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/Punch/Punch.unity
     guid: f81254fb3e7064d4d94016381ea2662c
+  - enabled: 1
+    path: Assets/Minigames/Texas Hold Em/Texas Hold em.unity
+    guid: 691ee3c4cbf5a604ca7aa15399f54709
   m_configObjects: {}

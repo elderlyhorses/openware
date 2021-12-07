@@ -28,6 +28,7 @@ namespace FieldGoal
         public List<AudioClip> WinAudioClips;
         public List<AudioClip> LoseAudioClips;
         
+        private SoundManager _soundManager;
         float windPower;
         bool windIsLeft;
 
@@ -49,6 +50,7 @@ namespace FieldGoal
             }
 
             setupWind();
+            _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         }
 
         private void setupWind() {
@@ -66,7 +68,11 @@ namespace FieldGoal
            }
         }
 
-        void kick() {
+        void kick()
+        {
+            var x = Random.Range(0, KickAudioClips.Count - 1);
+            _soundManager.PlayOneShot(KickAudioClips[x]);
+            
             // First convert each angle to be between 0-180 (positive or negative) of the y+ axis
             float aimZ = AimArrowTransform.eulerAngles.z > 180f ? -360f + AimArrowTransform.eulerAngles.z : AimArrowTransform.eulerAngles.z;
             float windZ = WindArrowTransform.eulerAngles.z > 180f ? -360f + WindArrowTransform.eulerAngles.z : WindArrowTransform.eulerAngles.z;
@@ -98,6 +104,9 @@ namespace FieldGoal
         IEnumerator handleWin() {
             yield return new WaitForSeconds(2.5f);
 
+            var x = Random.Range(0, WinAudioClips.Count - 1);
+            _soundManager.PlayOneShot(WinAudioClips[x]);
+            
             foreach (GameObject instruction in InstructionObjects) {
                 instruction.SetActive(false);
             }
@@ -106,12 +115,15 @@ namespace FieldGoal
                 win.SetActive(true);
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             MinigameCompletionHandler.WinCallback.Invoke();
         }
 
         IEnumerator handleLose() {
             yield return new WaitForSeconds(2.5f);
+            
+            var x = Random.Range(0, LoseAudioClips.Count - 1);
+            _soundManager.PlayOneShot(LoseAudioClips[x]);
 
             foreach (GameObject instruction in InstructionObjects) {
                 instruction.SetActive(false);
@@ -121,7 +133,7 @@ namespace FieldGoal
                 lose.SetActive(true);
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             MinigameCompletionHandler.LoseCallback.Invoke();
         }
     }

@@ -25,45 +25,45 @@ namespace TexasHoldEm
             var passedTests = new List<string>();
             var failedTests = new List<string>();
 
-            var highCardTest = HighCardTests();
-            passedTests.AddRange(highCardTest.PassedTests);
-            failedTests.AddRange(highCardTest.FailedTests);
+            // var highCardTest = HighCardTests();
+            // passedTests.AddRange(highCardTest.PassedTests);
+            // failedTests.AddRange(highCardTest.FailedTests);
             
-            var pairTest = PairTests();
-            passedTests.AddRange(pairTest.PassedTests);
-            failedTests.AddRange(pairTest.FailedTests);
+            // var pairTest = PairTests();
+            // passedTests.AddRange(pairTest.PassedTests);
+            // failedTests.AddRange(pairTest.FailedTests);
             
-            var twoPairTest = TwoPairTests();
-            passedTests.AddRange(twoPairTest.PassedTests);
-            failedTests.AddRange(twoPairTest.FailedTests);
+            // var twoPairTest = TwoPairTests();
+            // passedTests.AddRange(twoPairTest.PassedTests);
+            // failedTests.AddRange(twoPairTest.FailedTests);
             
-            var threeOfAKindTest = ThreeOfAKindTests();
-            passedTests.AddRange(threeOfAKindTest.PassedTests);
-            failedTests.AddRange(threeOfAKindTest.FailedTests);
+            // var threeOfAKindTest = ThreeOfAKindTests();
+            // passedTests.AddRange(threeOfAKindTest.PassedTests);
+            // failedTests.AddRange(threeOfAKindTest.FailedTests);
             
-            var straightTest = StraightTests();
-            passedTests.AddRange(straightTest.PassedTests);
-            failedTests.AddRange(straightTest.FailedTests);
+            // var straightTest = StraightTests();
+            // passedTests.AddRange(straightTest.PassedTests);
+            // failedTests.AddRange(straightTest.FailedTests);
 
-            var flushTest = FlushTests();
-            passedTests.AddRange(flushTest.PassedTests);
-            failedTests.AddRange(flushTest.FailedTests);
+            // var flushTest = FlushTests();
+            // passedTests.AddRange(flushTest.PassedTests);
+            // failedTests.AddRange(flushTest.FailedTests);
             
-            var fullHouseTest = FullHouseTests();
-            passedTests.AddRange(fullHouseTest.PassedTests);
-            failedTests.AddRange(fullHouseTest.FailedTests);
+            // var fullHouseTest = FullHouseTests();
+            // passedTests.AddRange(fullHouseTest.PassedTests);
+            // failedTests.AddRange(fullHouseTest.FailedTests);
             
-            var fourOfAKindTest = FourOfAKindTests();
-            passedTests.AddRange(fourOfAKindTest.PassedTests);
-            failedTests.AddRange(fourOfAKindTest.FailedTests);
+            // var fourOfAKindTest = FourOfAKindTests();
+            // passedTests.AddRange(fourOfAKindTest.PassedTests);
+            // failedTests.AddRange(fourOfAKindTest.FailedTests);
             
             var straightFlushTest = StraightFlushTests();
             passedTests.AddRange(straightFlushTest.PassedTests);
             failedTests.AddRange(straightFlushTest.FailedTests);
             
-            var royalFlushTest = RoyalFlushTests();
-            passedTests.AddRange(royalFlushTest.PassedTests);
-            failedTests.AddRange(royalFlushTest.FailedTests);
+            // var royalFlushTest = RoyalFlushTests();
+            // passedTests.AddRange(royalFlushTest.PassedTests);
+            // failedTests.AddRange(royalFlushTest.FailedTests);
             
             return new TestResults(passedTests, failedTests);
         }
@@ -186,62 +186,62 @@ namespace TexasHoldEm
                 failedTests.Add("<color=#ef476f>Failed: Straight flush rank</color>");
             }
 
-            if (basicResult.Cards.Count == 5 &&
-                basicResult.Cards.Contains(basicExpectedCards[0]) &&
-                basicResult.Cards.Contains(basicExpectedCards[1]) &&
-                basicResult.Cards.Contains(basicExpectedCards[2]) &&
-                basicResult.Cards.Contains(basicExpectedCards[3]) &&
-                basicResult.Cards.Contains(basicExpectedCards[4]))
-            {
-                passedTests.Add("<color=#88d498>Passed: Straight flush cards</color>");
-            }
-            else
-            {
-                failedTests.Add("<color=#ef476f>Failed: Straight flush cards</color>");
-            }
+            // if (basicResult.Cards.Count == 5 &&
+            //     basicResult.Cards.Contains(basicExpectedCards[0]) &&
+            //     basicResult.Cards.Contains(basicExpectedCards[1]) &&
+            //     basicResult.Cards.Contains(basicExpectedCards[2]) &&
+            //     basicResult.Cards.Contains(basicExpectedCards[3]) &&
+            //     basicResult.Cards.Contains(basicExpectedCards[4]))
+            // {
+            //     passedTests.Add("<color=#88d498>Passed: Straight flush cards</color>");
+            // }
+            // else
+            // {
+            //     failedTests.Add("<color=#ef476f>Failed: Straight flush cards</color>");
+            // }
             
-            var gapHand = new List<Card>();
-            gapHand.Add(new Card(Suit.Diamonds, CardRank.Deuce));
-            gapHand.Add(new Card(Suit.Diamonds, CardRank.Three));
-            gapHand.Add(new Card(Suit.Diamonds, CardRank.Eight));
-            gapHand.Add(new Card(Suit.Diamonds, CardRank.Nine));
-            gapHand.Add(new Card(Suit.Diamonds, CardRank.Ten));
-            gapHand.Add(new Card(Suit.Hearts, CardRank.Seven));
-            gapHand.Add(new Card(Suit.Clubs, CardRank.Queen));
-            gapHand = Utilities.Shuffle(gapHand);
+            // var gapHand = new List<Card>();
+            // gapHand.Add(new Card(Suit.Diamonds, CardRank.Deuce));
+            // gapHand.Add(new Card(Suit.Diamonds, CardRank.Three));
+            // gapHand.Add(new Card(Suit.Diamonds, CardRank.Eight));
+            // gapHand.Add(new Card(Suit.Diamonds, CardRank.Nine));
+            // gapHand.Add(new Card(Suit.Diamonds, CardRank.Ten));
+            // gapHand.Add(new Card(Suit.Hearts, CardRank.Seven));
+            // gapHand.Add(new Card(Suit.Clubs, CardRank.Queen));
+            // gapHand = Utilities.Shuffle(gapHand);
 
-            var gapResult = TexasHoldEmWhoWonManager.Rank(gapHand);
+            // var gapResult = TexasHoldEmWhoWonManager.Rank(gapHand);
 
-            if (gapResult.Rank != HandRank.StraightFlush)
-            {
-                passedTests.Add("<color=#88d498>Passed: Gap straight flush rank</color>");
-            }
-            else
-            {
-                failedTests.Add("<color=#ef476f>Failed: Gap straight flush rank</color>");
-            }
+            // if (gapResult.Rank != HandRank.StraightFlush)
+            // {
+            //     passedTests.Add("<color=#88d498>Passed: Gap straight flush rank</color>");
+            // }
+            // else
+            // {
+            //     failedTests.Add("<color=#ef476f>Failed: Gap straight flush rank</color>");
+            // }
             
-            // It's a flush and a straight but not a straight flush
-            var offsetStraightAndFlush = new List<Card>();
-            offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Deuce));
-            offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Three));
-            offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Four));
-            offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Five));
-            offsetStraightAndFlush.Add(new Card(Suit.Hearts, CardRank.Six));
-            offsetStraightAndFlush.Add(new Card(Suit.Hearts, CardRank.Nine));
-            offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Queen));
-            offsetStraightAndFlush = Utilities.Shuffle(offsetStraightAndFlush);
+            // // It's a flush and a straight but not a straight flush
+            // var offsetStraightAndFlush = new List<Card>();
+            // offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Deuce));
+            // offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Three));
+            // offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Four));
+            // offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Five));
+            // offsetStraightAndFlush.Add(new Card(Suit.Hearts, CardRank.Six));
+            // offsetStraightAndFlush.Add(new Card(Suit.Hearts, CardRank.Nine));
+            // offsetStraightAndFlush.Add(new Card(Suit.Diamonds, CardRank.Queen));
+            // offsetStraightAndFlush = Utilities.Shuffle(offsetStraightAndFlush);
 
-            var offsetStraightAndFlushResult = TexasHoldEmWhoWonManager.Rank(offsetStraightAndFlush);
+            // var offsetStraightAndFlushResult = TexasHoldEmWhoWonManager.Rank(offsetStraightAndFlush);
 
-            if (offsetStraightAndFlushResult.Rank != HandRank.StraightFlush)
-            {
-                passedTests.Add("<color=#88d498>Passed: Offset straight and flush rank</color>");
-            }
-            else
-            {
-                failedTests.Add("<color=#ef476f>Failed: Offset straight and flush rank</color>");
-            }
+            // if (offsetStraightAndFlushResult.Rank != HandRank.StraightFlush)
+            // {
+            //     passedTests.Add("<color=#88d498>Passed: Offset straight and flush rank</color>");
+            // }
+            // else
+            // {
+            //     failedTests.Add("<color=#ef476f>Failed: Offset straight and flush rank</color>");
+            // }
             
             return new TestResults(passedTests, failedTests);
         }
