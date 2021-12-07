@@ -5,7 +5,7 @@
 # Vision
 - A collection of simple minigames that are fun to make and fun to play
 - Players should be able to learn and beat minigames in roughly 10 seconds
-- Make sure the player can see the result of the minigame. Before calling a `MinigameCompletionHandler` callback, clearly show that the minigame has been won or lost.
+- Make sure the player can see the result of the minigame. Before calling a `MinigameCompletionHandler` callback, spend a few seconds clearly showing that the minigame has been won or lost.
 
 # Adding a minigame
 1. Install Unity 2019.4.12f1 LTS.
