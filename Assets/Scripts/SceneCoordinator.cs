@@ -198,6 +198,7 @@ namespace SceneCoordinator
             GameObject.Find("Split").GetComponent<Button>().onClick.AddListener(DidTapSplitGame);
             GameObject.Find("Punch").GetComponent<Button>().onClick.AddListener(DidTapPunchGame);
             GameObject.Find("Texas Hold em").GetComponent<Button>().onClick.AddListener(DidTapTexasHoldEmGame);
+            GameObject.Find("Rhythm").GetComponent<Button>().onClick.AddListener(DidTapRhythmGame);
         }
 
         // Specific minigame menu callbacks        
@@ -285,6 +286,11 @@ namespace SceneCoordinator
         void DidTapTexasHoldEmGame()
         {
             ShowAndSetupSpecificMinigame("Texas Hold em");
+        }
+
+        void DidTapRhythmGame()
+        {
+            ShowAndSetupSpecificMinigame("Rhythm");
         }
 
         void ShowAndSetupSpecificMinigame(string sceneName)

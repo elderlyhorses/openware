@@ -27,3 +27,4 @@ Art and sound assets can only be used if we've got the appropriate license. For 
 
 - Playing cards from [this Wikipedia article](https://en.wikipedia.org/wiki/Standard_52-card_deck) ([CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/))
 - Casino felt from [davidgsteadman](https://flic.kr/p/ibmNwe)
+- [Orbiting the Earth by UltraCat](https://freemusicarchive.org/music/UltraCat/Orbiting_the_Earth/ultracat_-_01_-_orbiting_the_earth)
