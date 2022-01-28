@@ -12,7 +12,7 @@ namespace TexasHoldEm
   public class TexasHoldEmWhoWonManager : MonoBehaviour
   {
     public MinigameCompletionHandler MinigameCompletionHandler;
-    
+
     public Canvas Canvas;
     public Image HoleCard1;
     public Image HoleCard2;
@@ -39,19 +39,19 @@ namespace TexasHoldEm
     public TextMeshProUGUI CountdownText;
 
     public List<AudioClip> WooshAudioClips = new List<AudioClip>();
-    
+
     private Dictionary<string, Sprite> Clubs = new Dictionary<string, Sprite>();
     private Dictionary<string, Sprite> Diamonds = new Dictionary<string, Sprite>();
     private Dictionary<string, Sprite> Hearts = new Dictionary<string, Sprite>();
     private Dictionary<string, Sprite> Spades = new Dictionary<string, Sprite>();
     private Dictionary<Card, Image> ImageForCard = new Dictionary<Card, Image>();
 
-    private int remainingSeconds = 13;
+    private int remainingSeconds = 15;
     private HandRank player1Rank;
     private HandRank player2Rank;
     private bool isDone = false;
     private SoundManager _soundManager;
-    
+
     public enum PrintTestResults
     {
       All, PassingOnly, FailingOnly, None
@@ -60,7 +60,7 @@ namespace TexasHoldEm
     private void Awake()
     {
 #if UNITY_EDITOR
-  RunTests();
+      RunTests();
 #endif
 
       LoadImages();
@@ -73,7 +73,7 @@ namespace TexasHoldEm
       ResultBackground.SetActive(false);
       WinText.SetActive(false);
       LoseText.SetActive(false);
-    
+
       CountdownText.gameObject.SetActive(false);
       DeckPlaceholder.gameObject.SetActive(true);
 
@@ -89,7 +89,7 @@ namespace TexasHoldEm
           allCards[x].cardLocation = CardLocation.Community;
         }
       }
-      
+
       // var player1Cards = allCards.GetRange(0, 2);
       var player1Cards = new List<Card>();
       player1Cards.Add(allCards[0]);
@@ -105,7 +105,7 @@ namespace TexasHoldEm
       sharedCards.Add(allCards[6]);
       sharedCards.Add(allCards[7]);
       sharedCards.Add(allCards[8]);
-      
+
       var hand1 = new List<Card>();
       var hand2 = new List<Card>();
 
@@ -118,7 +118,7 @@ namespace TexasHoldEm
 
         hand2 = new List<Card>(sharedCards);
         hand2.AddRange(player2Cards);
-        
+
         player1Rank = Rank(hand1).Rank;
         player2Rank = Rank(hand2).Rank;
 
@@ -131,7 +131,7 @@ namespace TexasHoldEm
           sharedCards = allCards.GetRange(4, 5);
         }
       }
-      
+
       // Setup each card
       HoleCard1.gameObject.SetActive(false);
       HoleCard1.sprite = SpriteForCard(player1Cards[0]);
@@ -201,27 +201,27 @@ namespace TexasHoldEm
       DealCard(SharedCard5.gameObject, placeholderRT);
 
       var punchScale = Vector3.one / 2f;
-      
+
       yield return new WaitForSeconds(delay);
 
       Instructions.SetActive(true);
       Instructions.GetComponent<RectTransform>().DOPunchScale(punchScale, 0.2f);
 
       yield return new WaitForSeconds(delay / 2f);
-      
+
       Instructions2.SetActive(true);
       Instructions2.GetComponent<RectTransform>().DOPunchScale(punchScale, 0.2f);
-      
+
       yield return new WaitForSeconds(delay);
 
       Player1Button.gameObject.SetActive(true);
       Player1Button.gameObject.GetComponent<RectTransform>().DOPunchScale(punchScale, 0.2f);
-      
+
       yield return new WaitForSeconds(delay);
 
       CountdownText.gameObject.SetActive(true);
       StartCoroutine("Countdown");
-      
+
       Player2Button.gameObject.SetActive(true);
       Player2Button.gameObject.GetComponent<RectTransform>().DOPunchScale(punchScale, 0.2f);
     }
@@ -251,11 +251,11 @@ namespace TexasHoldEm
         }
       }
     }
-    
+
     void DealCard(GameObject target, RectTransform placeholderRT)
     {
       PlayRandomWoosh();
-        
+
       var card = Instantiate(DeckPlaceholder);
       card.gameObject.SetActive(true);
       card.transform.SetParent(Canvas.transform);
@@ -709,10 +709,10 @@ namespace TexasHoldEm
     {
       Instructions.SetActive(false);
       Instructions2.SetActive(false);
-      
+
       Hand1Text.gameObject.SetActive(true);
       Hand1Text.text = player1Rank.ToString();
-      
+
       Hand2Text.gameObject.SetActive(true);
       Hand2Text.text = player2Rank.ToString();
     }
@@ -722,8 +722,8 @@ namespace TexasHoldEm
       {
         return;
       }
-      
-      if ((int) player1Rank < (int) player2Rank)
+
+      if ((int)player1Rank < (int)player2Rank)
       {
         StartCoroutine("Win");
       }
@@ -739,8 +739,8 @@ namespace TexasHoldEm
       {
         return;
       }
-      
-      if ((int) player2Rank < (int) player1Rank)
+
+      if ((int)player2Rank < (int)player1Rank)
       {
         StartCoroutine("Win");
       }

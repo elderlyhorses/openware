@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -724,8 +724,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 255}
-  m_SizeDelta: {x: 278.4878, y: 82.98654}
+  m_AnchoredPosition: {x: -0.0000095367, y: 237.84}
+  m_SizeDelta: {x: 382.93298, y: 123.13547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488826970
 MonoBehaviour:
@@ -746,12 +746,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Left click to select
+  m_text: 'Left click+drag to select
 
-    Right click to move'
+    Right click to move
+
+    Spread out to
+    survive!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 24bea40274ebf4baa93f717da72c0202, type: 2}
-  m_sharedMaterial: {fileID: -4372996072328476012, guid: 24bea40274ebf4baa93f717da72c0202,
+  m_fontAsset: {fileID: 11400000, guid: c4ee699f643934d96b2d12457f55529d, type: 2}
+  m_sharedMaterial: {fileID: -7391397146067915773, guid: c4ee699f643934d96b2d12457f55529d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -788,7 +791,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -47.86
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
