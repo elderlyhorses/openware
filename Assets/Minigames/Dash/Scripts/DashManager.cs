@@ -186,7 +186,8 @@ namespace Dash
       HideAllText();
       LostRaceRT.gameObject.SetActive(true);
       LostRaceRT.DOPunchScale(punchScale, punchDuration);
-      yield return new WaitForSeconds(1f);
+
+      yield return new WaitForSeconds(2f);
       MinigameCompletionHandler.LoseCallback.Invoke();
     }
 
