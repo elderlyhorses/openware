@@ -770,6 +770,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7508415925795064033}
+  - component: {fileID: 5961361178672743089}
+  - component: {fileID: 2481576072836937508}
+  - component: {fileID: 6534467007001904305}
   m_Layer: 0
   m_Name: Parked Kart Prefab
   m_TagString: Untagged
@@ -795,6 +798,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5961361178672743089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508415925795064034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57560015, y: 0.30880022, z: 0.12943554}
+  m_Center: {x: -0.005440891, y: 0.24415064, z: -0.81615424}
+--- !u!65 &2481576072836937508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508415925795064034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0579712, y: 0.644927, z: 1.5833342}
+  m_Center: {x: 0, y: 0.25000048, z: 0.041666806}
+--- !u!65 &6534467007001904305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508415925795064034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36956427, y: 0.23912907, z: 0.20289767}
+  m_Center: {x: 0.010869667, y: 0.04347825, z: 0.9384071}
 --- !u!1 &7508415925809492506
 GameObject:
   m_ObjectHideFlags: 0
