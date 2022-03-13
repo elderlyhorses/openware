@@ -1,14 +1,68 @@
-# Minigames
-
-### Alphabet
-![Alphabet Game](https://media1.giphy.com/media/GoB7E91rYrQUtgB9MU/giphy.gif)
-
-### Alphabetize
-![Alphabetize](https://media3.giphy.com/media/ZgzuIFsFxU96E1UR51/giphy.gif)
-
 # What
 - Wario Ware inspired open source minigames
 - [Download on itch.io](https://aidanwaite.itch.io/openware)
+
+# Minigames
+
+### Alphabet
+![Alphabet gameplay](https://media1.giphy.com/media/GoB7E91rYrQUtgB9MU/giphy.gif)
+
+### Alphabetize
+![Alphabetize gameplay](https://media3.giphy.com/media/ZgzuIFsFxU96E1UR51/giphy.gif)
+
+### Awp
+![Awp gameplay](https://media2.giphy.com/media/d1NyfVyGOA2SIbMx8T/giphy.gif)
+
+### Bubble Pop
+![Bubble Pop gameplay](https://media3.giphy.com/media/suZPWuZ991FdWASa5c/giphy.gif)
+
+### Button Mash
+![Button Mash gameplay](https://media1.giphy.com/media/SrnbMjMVKzOiflwo8I/giphy.gif)
+
+### Capsta
+![Capsta gameplay](https://media4.giphy.com/media/XU3VmcbFwakcjKzHKY/giphy.gif)
+
+### Dash
+![Dash gameplay](https://media2.giphy.com/media/Jw0RJ736CgWdGpAHOv/giphy.gif)
+
+### Fally Bird
+![Fally Bird gameplay](https://media0.giphy.com/media/Lv5GajdOHOnu5yYLp2/giphy.gif)
+
+### Fast or Slow You Decide
+![Fast or Slow You Decide gameplay](https://media3.giphy.com/media/O0hMEdvqJqwaxixUUw/giphy.gif)
+
+### Field Goal
+![Field Goal gameplay](https://media2.giphy.com/media/cGlESOtufsFdyzbxKU/giphy.gif)
+
+### Graduation
+![Graduation gameplay](https://media3.giphy.com/media/veQSOdt9qOWqihBgOU/giphy.gif)
+
+### Jump Rope
+![Jump Rope gameplay](https://media0.giphy.com/media/isF0OhuTTw1JkY6TDv/giphy.gif)
+
+### Kart Parking
+![Kart Parking gameplay](https://media1.giphy.com/media/s9dvvvTiqA4iaNiDSi/giphy.gif)
+
+### Keepie Uppie
+![Keepie Uppie gameplay](https://media1.giphy.com/media/GVLHl1wKwjXwnnYZjP/giphy.gif)
+
+### Mouse Maze
+![Mouse Maze gameplay](https://media2.giphy.com/media/3VX2t2H4KielbNEd3I/giphy.gif)
+
+### Punch
+![Punch gameplay](https://media1.giphy.com/media/yzQmLMNPkarRPCoizU/giphy.gif)
+
+### Relax
+![Relax gameplay](https://media1.giphy.com/media/GgSuMG7lhfasv66fM3/giphy.gif)
+
+### Rhythm
+![Rhythm gameplay](https://media4.giphy.com/media/UpxMVINchIC3Hfum1O/giphy.gif)
+
+### Split
+![Split](https://media0.giphy.com/media/uGuNQZIgQ21FF74TTs/giphy.gif)
+
+### Texas Hold em
+![Texas Hold em](https://media0.giphy.com/media/kghyugA00l0b71HRgU/giphy.gif)
 
 # Vision
 - A collection of simple minigames that are fun to make and fun to play
