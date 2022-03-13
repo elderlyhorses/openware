@@ -1,7 +1,12 @@
 # Minigames
 
-## Alphabet
+### Alphabet
 ![Alphabet Game](https://media1.giphy.com/media/GoB7E91rYrQUtgB9MU/giphy.gif)
+
+### Alphabetize
+![Alphabetize](https://media3.giphy.com/media/ZgzuIFsFxU96E1UR51/giphy.gif)
+
+
 
 # What
 - Wario Ware inspired open source minigames
