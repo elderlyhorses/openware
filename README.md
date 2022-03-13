@@ -6,8 +6,6 @@
 ### Alphabetize
 ![Alphabetize](https://media3.giphy.com/media/ZgzuIFsFxU96E1UR51/giphy.gif)
 
-
-
 # What
 - Wario Ware inspired open source minigames
 - [Download on itch.io](https://aidanwaite.itch.io/openware)
