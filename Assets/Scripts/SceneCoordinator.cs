@@ -187,6 +187,7 @@ namespace SceneCoordinator
       GameObject.Find("Button Mash").GetComponent<Button>().onClick.AddListener(DidTapButtonMashGame);
       GameObject.Find("Capsta").GetComponent<Button>().onClick.AddListener(DidTapCapstaGame);
       GameObject.Find("Dash").GetComponent<Button>().onClick.AddListener(DidTapDashGame);
+      GameObject.Find("Demo").GetComponent<Button>().onClick.AddListener(DidTapDemoGame);
       GameObject.Find("Fally Bird").GetComponent<Button>().onClick.AddListener(DidTapFallyBirdGame);
       GameObject.Find("Fast or Slow You Decide").GetComponent<Button>().onClick.AddListener(DidTapFastOrSlowYouDecideGame);
       GameObject.Find("Field Goal").GetComponent<Button>().onClick.AddListener(DidTapFieldGoalGame);
@@ -303,6 +304,11 @@ namespace SceneCoordinator
     void DidTapKartParkingGame()
     {
       ShowAndSetupSpecificMinigame("Kart Parking");
+    }
+
+    void DidTapDemoGame()
+    {
+      ShowAndSetupSpecificMinigame("Demo");
     }
 
     void ShowAndSetupSpecificMinigame(string sceneName)
